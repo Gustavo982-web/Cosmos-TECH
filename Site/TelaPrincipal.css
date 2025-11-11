@@ -1,0 +1,164 @@
+*{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap');
+
+
+.navbar {
+  background: #03142b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 50px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.23);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 45px; 
+  height: 50px;
+  position: relative;
+   left: 70px;
+}
+
+.logo span { 
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.5rem;
+  letter-spacing: 3px; 
+  position: relative;
+  left: 30px;
+}
+
+.logo span .cosmos {
+   font-family: 'Orbitron',sans-serif;
+  font-weight: 500;
+  color: #00eaff;
+}
+
+.logo span .tech {
+  font-weight: 300;
+  color: #ffffff;
+}
+
+.menu a {
+    font-family: sans-serif;
+   position: relative;
+ right: 30px;
+  color: #00eaff;
+  text-decoration: none;
+  margin-left: 30px;
+  font-size: 20px;
+  padding: 7px 18px;
+  border-radius: 8px;
+  transition: 0.3s;
+  gap: 6px;
+}
+
+.menu a:hover {
+  background: linear-gradient(45deg, #00bfff, #007bff);
+  color: #fff;
+}
+/* fim da header */
+.section {
+    padding: 80px 20px 100px 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(1, 10, 10, 0.5), rgba(1, 10, 10, 0.7)), url('./Imgs/fundo-de-galaxia-espacial.jpg'); 
+    background-size: cover;
+    background-position: center;
+    color: #ffffff; 
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.content-container {
+    max-width: 800px;
+    padding-top: 50px; 
+    position: relative;
+    z-index: 2; 
+}
+
+.section h1 {
+    font-size: 40px; 
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.cosmos-tech {
+    background: linear-gradient(45deg, #00eaff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.explore-text {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    color: #00eaff;
+}
+
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #cccccc;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-explore {
+    background-color: #00bfff; 
+    color: #03142b;
+    border: 1px solid #00bfff;
+}
+
+.btn-explore:hover {
+    background-color: transparent;
+    color: #00bfff;
+    border: 1px solid #00bfff;
+}
+
+.btn-quiz {
+    background: linear-gradient(45deg, #8a2be2, #4b0082); 
+    color: #ffffff;
+    border: 1px solid #8a2be2;
+}
+
+.btn-quiz:hover {
+    background: linear-gradient(45deg, #4b0082, #8a2be2);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+}
