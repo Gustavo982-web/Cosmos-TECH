@@ -1,52 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
-    <link rel="stylesheet" href="cadastro.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="cadastro.css" />
+  </head>
+  <body>
     <header class="navbar">
-<div class="logo">
-<img src="./Imgs/ICONE.png" alt="Cosmos Tech Logo">
-<span>
-<span class="cosmos">COSMOS</span>
-<span class="tech">TECH</span>
-</span>
-</div>
+      <div class="logo">
+        <img src="./Imgs/ICONE.png" alt="Cosmos Tech Logo" />
+        <span>
+          <span class="cosmos">COSMOS</span>
+          <span class="tech">TECH</span>
+        </span>
+      </div>
 
-<nav class="menu">
-<a class="active" href="./telaPrincipal.html"> Início</a>
-<a href="./login.html">Login</a>
-<a href="./cadastro.html">Cadastro</a>
-</nav>
-</header>
+      <nav class="menu">
+        <a class="active" href="./telaPrincipal.html"> Início</a>
+        <a href="./login.html">Login</a>
+        <a href="./cadastro.html">Cadastro</a>
+      </nav>
+    </header>
 
+    <div class="video-container">
+      <video autoplay loop muted>
+        <source src="./video/215695_medium.mp4" />
+      </video>
+    </div>
 
-    
-<main  class="content">
-  <div class="cadastro">
-    <h2>Cadastro</h2>
+    <main class="content">
+      <div class="cadastro">
+        <h2>Cadastro</h2>
 
-    <label for="nome">Digite seu nome</label>
-    <input id="nome" type="text" placeholder="Seu nome">
+        <label for="nome">Digite seu nome</label>
+        <input id="ipt_nome" type="text" placeholder="Seu nome" />
 
-    <label for="email">Digite seu e-mail</label>
-    <input id="email" type="email" placeholder="Seu e-mail">
+        <label for="email">Digite seu e-mail</label>
+        <input id="ipt_email" type="email" placeholder="Seu e-mail" />
 
-    <label for="senha">Digite sua senha</label>
-    <input id="senha" type="password" placeholder="Sua senha">
+        <label for="senha">Digite sua senha</label>
+        <input id="ipt_senha" type="password" placeholder="Sua senha" />
 
-    <label for="confirmar">Confirme sua senha</label>
-    <input id="confirmar" type="password" placeholder="Confirme sua senha">
+        <label for="confirmar">Confirme sua senha</label>
+        <input
+          id="confirmar"
+          type="password"
+          placeholder="Confirme sua senha"
+        />
 
-    <button type="submit">Cadastrar</button>
-  </div>
-</main>
-
-
-
-</body>
+        <button onclick="cadastra()">Cadastrar</button>
+      </div>
+    </main>
+  </body>
 </html>
+<script>
+  function cadastra() {
+    var nome = ipt_nome.value;
+    var email = ipt_email.value;
+
+    var senha = ipt_senha.value;
+  }
+</script>

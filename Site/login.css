@@ -5,8 +5,6 @@ padding: 0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap');
 
-
-
 .navbar {
 background: #03142b;
 display: flex;
@@ -69,10 +67,28 @@ gap: 6px;
 background: linear-gradient(45deg, #00bfff, #007bff);
 color: #fff;
 }
-body{
+/* body{
   background-image: url(./Imgs/panorama-noturno-da-galaxia.jpg);
   background-size: cover;
   background-position: center;
+} */
+
+.video-container {
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+  overflow: hidden;
+}
+
+.video-container video {
+  position: relative  ;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  z-index: 0;
 }
 
 
