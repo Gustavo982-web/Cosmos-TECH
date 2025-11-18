@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    
+    <header class="navbar">
+<div class="logo">
+<img src="./Imgs/ICONE.png" alt="Cosmos Tech Logo">
+<span>
+<span class="cosmos">COSMOS</span>
+<span class="tech">TECH</span>
+</span>
+</div>
+
+<nav class="menu">
+<a href="./telaPrincipal.html"> Início</a>
+<a class="active" href="./login.html">Login</a>
+<a href="./cadastro.html">Cadastro</a>
+</nav>
+</header>
+
+
+<div class="video-container">
+  <video autoplay loop muted>
+    <source src="./video/213407_medium.mp4">
+  </video>
+</div>
+
+
+    
+<main  class="content">
+  <div class="login">
+    <h2>Login</h2>
+
+    <label for="email">Digite seu e-mail</label>
+    <input id="ipt_email" type="email" placeholder="Seu e-mail">
+
+    <label for="senha">Digite sua senha</label>
+    <input id="ipt_senha" type="password" placeholder="Sua senha">
+
+    <button onclick="login()" type="submit">Login</button>
+
+  </div>
+</main>
+
+</body>
+</html>
+
+<script>
+function login() {
+    var email = ipt_email.value;
+
+    var senha = ipt_senha.value;
+
+    if(email ===' '|| senha === ' '){
+      alert('Informe todos os dados')
+
+    }
+    else{
+       fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+              alert('Login')
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id
+                    setTimeout(function () {
+                        window.location = "./software.html";
+                    }, 1000); 
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+       
+      }
+    
+  }
+
+      </script>

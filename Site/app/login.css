@@ -1,0 +1,161 @@
+*{
+font-family: sans-serif;
+margin: 0;
+padding: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap');
+
+.navbar {
+background: #03142b;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 14px 50px;
+border-bottom: 1px solid rgba(0, 255, 255, 0.23);
+font-family: 'Orbitron', sans-serif;
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.logo img {
+width: 45px;
+height: 50px;
+position: relative;
+left: 70px;
+}
+
+.logo span {
+display: flex;
+align-items: center;
+gap: 6px;
+font-size: 1.5rem;
+letter-spacing: 3px;
+position: relative;
+left: 30px;
+}
+
+.logo span .cosmos {
+font-family: 'Orbitron',sans-serif;
+font-weight: 500;
+color: #00eaff;
+}
+
+.logo span .tech {
+font-weight: 300;
+color: #ffffff;
+}
+
+.menu a {
+font-family: sans-serif;
+position: relative;
+right: 30px;
+color: #00eaff;
+text-decoration: none;
+margin-left: 30px;
+font-size: 20px;
+padding: 7px 18px;
+border-radius: 8px;
+transition: 0.3s;
+gap: 6px;
+}
+
+.menu a:hover {
+background: linear-gradient(45deg, #00bfff, #007bff);
+color: #fff;
+}
+/* body{
+  background-image: url(./Imgs/panorama-noturno-da-galaxia.jpg);
+  background-size: cover;
+  background-position: center;
+} */
+
+.video-container {
+  position: absolute;
+  width: 100%;
+  height: 100%; 
+  overflow: hidden;
+}
+
+.video-container video {
+  position: relative  ;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+}
+
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 50%;
+  position: relative;
+  margin: auto;
+  top: 70px;
+  border-radius: 20px;
+}
+
+.content .login {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  height: 250px;
+  width: 80%;
+  max-width: 400px;
+  text-align: left;
+}
+
+.login h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #03142b;
+}
+
+.login label {
+   color: #00bfff;
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.login input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.login input:focus {
+  border-color: #00bfff;
+  box-shadow: 0 0 4px rgba(0, 191, 255, 0.5);
+}
+
+.login button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 30px;
+  background-color: #03142b;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login button:hover {
+  background-color: #009acd;
+}

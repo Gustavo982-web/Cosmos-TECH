@@ -1,0 +1,254 @@
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background: #03142b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 50px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.23);
+  font-family: "Orbitron", sans-serif;
+}
+.menu a {
+  font-family: sans-serif;
+   position: relative;
+   left: 450px;
+  color: #00eaff;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 7px 18px;
+  border-radius: 8px;
+  transition: 0.3s;
+  gap: 5px;
+}
+
+.menu a:hover {
+  background: linear-gradient(45deg, #00bfff, #007bff);
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 45px;
+  height: 50px;
+  position: relative;
+  left: 70px;
+}
+
+.logo span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  position: relative;
+  left: 30px;
+}
+
+.logo span .cosmos {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 500;
+  color: #00eaff;
+}
+
+.logo span .tech {
+  font-weight: 300;
+  color: #ffffff;
+}
+.conteudosPrincipal {
+  background: #020b18;
+  color: white;
+  padding-bottom: 60px;
+}
+.curiosidades {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(0, 255, 255, 0.05);
+    border-left: 3px solid #00eaff;
+    border-radius: 6px;
+}
+
+.curiosidades h3 {
+    margin-bottom: 8px;
+    color: #00eaff;
+    font-size: 20px;
+}
+
+.curiosidades ul {
+    padding-left: 18px;
+}
+
+.curiosidades li {
+    margin-bottom: 6px;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+.banner-viagens {
+  text-align: center;
+  padding: 50px 20px;
+  background-image: url(./Imgs/astrounata2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  height: 450px;
+}
+
+.banner-viagens h1 {
+  font-family: "Orbitron", sans-serif;
+  color: #00eaff;
+  display: flex;
+  position:relative ;
+  top : 140px;
+  justify-content: center;
+  text-align: center;
+  font-size: 46px;
+  letter-spacing: 3px;
+}
+
+.banner-viagens p {
+    position:relative ;
+  top : 150px;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  color: #bcdfff;
+  display: flex;
+  margin-top: 10px;
+}
+
+.secao-dupla {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px 20px;
+  background: #03142b;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  margin: 40px auto;
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.15);
+}
+.lado-texto {
+  flex: 1;
+  color: white;
+}
+.lado-texto h2 {
+  color: #00eaff;
+  font-family: "Orbitron", sans-serif;
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+.lado-texto p {
+  line-height: 1.6;
+  font-size: 16px;
+}
+.lado-imagem {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.lado-imagem img {
+  width: 80%;
+  height: auto;
+  max-width: 320px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+.secao-dupla {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.5s ease;
+}
+
+.aparecer {
+    opacity: 1;
+    transform: translateY(0);
+}
+.quiz{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-align: center; 
+}
+.btn-quiz {
+    color: #ffffff;
+    background-color: #03142b;
+    padding: 15px 25px;
+    border: 1px solid #5e1a7c;
+    border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+}
+.btn-quiz:hover{
+        background-color: #061c3b;
+
+    
+}
+.footer {
+  height: 150px;
+  background-color: #03142b;
+  padding: 40px 20px 20px;
+  border-top: 1px solid rgba(0, 255, 255, 0.15);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo img {
+  width: auto;
+  height: 100px;
+}
+
+.footer-logo .cosmos {
+  font-family: "Orbitron", sans-serif;
+  color: #00eaff;
+}
+
+.footer-logo .tech {
+  color: #ffffff;
+}
+.footer-social {
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+
+}
+.footer-social img {
+    width: 24px; 
+    height: 24px; 
+    cursor: pointer;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #999;
+  font-size: 14px;
+}
+

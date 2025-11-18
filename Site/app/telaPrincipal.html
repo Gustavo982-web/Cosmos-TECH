@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COSMOS TECH - HOME </title>
+  <link rel="stylesheet" href="TelaPrincipal.css">
+  <link rel="icon" href="./Imgs/ICONE.png" title="icon">
+
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="./Imgs/ICONE.png" alt="Cosmos Tech Logo">
+      <span>
+        <span class="cosmos">COSMOS</span>
+        <span class="tech">TECH</span>
+      </span>
+    </div>
+
+    <nav class="menu">
+      <a class="active" href="./telaPrincipal.html"> Início</a>
+      <a href="./login.html">Login</a>
+      <a href="./cadastro.html">Cadastro</a>
+    </nav>
+  </header>
+
+
+
+  <section class="section">
+
+    <div class="content-container">
+      <p class="explore-text">
+        <span>Explore o Universo </span>
+      </p>
+      <h1>Bem-vindo ao <span class="cosmos-tech">Cosmos Tech</span></h1>
+      <p class="subtitle">
+        Descubra os mistérios do universo através de conteúdos introdutórios fascinantes e teste seus conhecimentos com
+        nossos quizzes interativos.
+      </p>
+      <div class="buttons">
+        <button class="btn btn-explore">Explorar Conteúdos</button>
+        <button class="btn btn-quiz">Teste seu conhecimento</button>
+      </div>
+    </div>
+  </section>
+
+  <main class="content">
+
+    <div class="aprender">
+
+      <h1 class="principal">O que você vai aprender ? </h1>
+
+
+      <h1 class="viagem">Descubra fatos sobre <br> as viagens espacias</h1>
+
+
+
+      <p>Descubra a magia das viagens espaciais: um convite para sentir <br>
+        a imensidão do universo, tocar novos horizontes e despertar o desejo de <br>
+        ir além. Deixe sua curiosidade guiar você entre estrelas, planetas e <br>
+        possibilidades infinitas. Embarque nessa jornada e <br> comece hoje mesmo a explorar o futuro!</p>
+
+
+    </div>
+
+
+    <div class="sistemaSo">
+
+      <h1>Descubra fatos interessantes <br> sobre nosso sistema solar</h1>
+
+      <p>Explore as maravilhas do nosso Sistema Solar: <br>
+        viaje por planetas fascinantes, mergulhe em mistérios <br>
+        cósmicos e descubra a beleza que orbita ao nosso redor. <br>
+        Deixe a curiosidade te guiar entre mundos incríveis e desperte <br>
+        o desejo de conhecer o universo. Comece sua jornada agora!</p>
+
+
+    </div>
+
+    <footer class="footer">
+      <div class="footer-container">
+
+        <div class="footer-logo">
+          <img src="./Imgs/Logo Cosmos-tech.png" alt="Logo">
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Início</a>
+          <a href="#">Explorar</a>
+          <a href="#">Quiz</a>
+          <a href="#">Contato</a>
+        </div>
+
+        <div class="footer-social">
+          <a href="#">
+            <img src="./Imgs/instagram.png" alt="Instagram">
+          </a>
+          <a href="#">
+            <img src="./Imgs/youtube.png" alt="YouTube">
+          </a>
+          <a href="#">
+            <img src="./Imgs/github.png" alt="GitHub">
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-copy">
+        © 2025 CosmosTech — Todos os direitos reservados.
+      </div>
+    </footer>
+  </main>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+
+
+  var imagem = ['./Imgs/fundo-de-galaxia-espacial.jpg',
+    './Imgs/stars-7249785_1280.jpg',
+    './Imgs/imagemEspacex.jpeg']
+
+  var index = 0;
+  function trocarImagem() {
+    var section = document.querySelector(".section");
+    index++
+    if (index >= imagem.length) {
+      index = 0;
+    }
+    section.style.backgroundImage = `linear-gradient(rgba(3, 20, 40, 0.5), rgba(3, 20, 40, 0.7)), url('${imagem[index]}')`;
+    ;
+  }
+
+  setInterval(trocarImagem, 5000);
+</script>
+
+</script>
