@@ -1,206 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viagens espaciais</title>
+    <link rel="stylesheet" href="viagens.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viagens espaciais
-    </title>
-    <link rel="stylesheet" href="viagens.css">
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header class="navbar">
-        <div class="logo">
-            <img src="./Imgs/ICONE.png" alt="Cosmos Tech Logo">
-            <span>
-                <span class="cosmos">COSMOS</span>
-                <span class="tech">TECH</span>
+      <div class="logo">
+        <img src="./Imgs/ICONE.png" alt="Cosmos Tech Logo" />
+        <span>
+          <span class="cosmos">COSMOS</span>
+          <span class="tech">TECH</span>
+        </span>
 
-
-            </span>
-
-            <nav class="menu">
-                <a  href="software.html"> Nosso Lar</a>
-                <a  class="active" href="viagens.html">Viagens</a>
-                <a href="">Dashboard</a>
-            </nav>
-
-            
-        </div>
-
-
+        <nav class="menu">
+          <a href="software.html"> Nosso Lar</a>
+          <a class="active" href="viagens.html">Viagens</a>
+          <a href="dashboard.html">Dashboard</a>
+        </nav>
+      </div>
     </header>
 
     <section class="conteudosPrincipal">
-        <div class="banner-viagens">
-            <h1>Viagens espaciais</h1>
-            <p>Um pequeno passo para o homem, um grande passo para a humanidade</p>
+      <div class="banner-viagens">
+        <h1>Viagens espaciais</h1>
+        <p>Um pequeno passo para o homem, um grande passo para a humanidade</p>
+      </div>
+
+      <div class="secao-dupla" id="secao1">
+        <div class="lado-texto">
+          <h2>Apolo 11: Pouso na Lua</h2>
+          <p>
+            A Missão Apolo 11, em 1969, marcou a primeira vez que seres humanos
+            pousaram e caminharam em outro corpo celeste. Este evento histórico
+            realizou o objetivo nacional dos EUA de pousar um homem na Lua e
+            trazê-lo de volta em segurança antes do fim da década.
+          </p>
+          <div class="curiosidades">
+            <h3>Curiosidades</h3>
+            <ul>
+              <li>O comandante da missão foi **Neil Armstrong**.</li>
+              <li>O pouso ocorreu no **Mar da Tranquilidade**.</li>
+              <li>Eles trouxeram 21,5 kg de amostras de rochas lunares.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="secao-dupla" id="secao1">
-            <div class="lado-texto">
-                <h2>Apolo 11: Pouso na Lua</h2>
-                <p>
-                    A Missão Apolo 11, em 1969, marcou a primeira vez que seres humanos pousaram e caminharam em outro corpo celeste. 
-                    Este evento histórico realizou o objetivo nacional dos EUA de pousar um homem na Lua e trazê-lo de volta em segurança antes do fim da década.
-                </p>
-                <div class="curiosidades">
-                    <h3>Curiosidades</h3>
-                    <ul>
-                        <li>O comandante da missão foi **Neil Armstrong**.</li>
-                <li>O pouso ocorreu no **Mar da Tranquilidade**.</li>
-                <li>Eles trouxeram 21,5 kg de amostras de rochas lunares.</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="lado-imagem">
+          <img
+            src="./Imgs/Fotos do pouso da Apollo 11 na lua que a NASA não queria que você visse.jpg"
+            alt="Sol"
+          />
+        </div>
+      </div>
 
-            <div class="lado-imagem">
-                <img src="./Imgs/Fotos do pouso da Apollo 11 na lua que a NASA não queria que você visse.jpg" alt="Sol">
-            </div>
+      <div class="secao-dupla" id="secao2">
+        <div class="lado-texto">
+          <h2>Sputnik 1: O Início da Era Espacial</h2>
+          <p>
+            Lançado pela União Soviética em 1957, o Sputnik 1 foi o primeiro
+            satélite artificial a ser colocado em órbita da Terra. Seu
+            lançamento inesperado deu início à "Corrida Espacial" entre os EUA e
+            a URSS, acelerando as inovações tecnológicas globais.
+          </p>
+          <div class="curiosidades">
+            <h3>Curiosidades</h3>
+            <ul>
+              <li>
+                Seu sinal de rádio podia ser detectado por rádio amadores em
+                todo o mundo.
+              </li>
+              <li>Permaneceu em órbita por **92 dias**.</li>
+              <li>
+                Tinha o tamanho de uma bola de basquete (58 cm de diâmetro).
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="secao-dupla" id="secao2">
-            <div class="lado-texto">
-                <h2>Sputnik 1: O Início da Era Espacial</h2>
-                <p>
-                    Lançado pela União Soviética em 1957, o Sputnik 1 foi o primeiro satélite artificial a ser colocado em órbita da Terra. 
-            Seu lançamento inesperado deu início à "Corrida Espacial" entre os EUA e a URSS, acelerando as inovações tecnológicas globais.
-                </p>
-                <div class="curiosidades">
-                    <h3>Curiosidades</h3>
-                    <ul>
-                       <li>Seu sinal de rádio podia ser detectado por rádio amadores em todo o mundo.</li>
-                <li>Permaneceu em órbita por **92 dias**.</li>
-                <li>Tinha o tamanho de uma bola de basquete (58 cm de diâmetro).</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="lado-imagem">
+          <img src="./Imgs/1957 USSR - SPUTNIK_.jpg" alt="Mercúrio" />
+        </div>
+      </div>
 
-            <div class="lado-imagem">
-                <img src="./Imgs/1957 USSR - SPUTNIK_.jpg" alt="Mercúrio">
-            </div>
+      <div class="secao-dupla" id="secao3">
+        <div class="lado-texto">
+          <h2>Vostok 1: Yuri Gagarin</h2>
+          <p>
+            Em 1961, o cosmonauta soviético **Yuri Gagarin** se tornou o
+            primeiro ser humano a viajar ao espaço e orbitar a Terra. Esta
+            missão provou que humanos poderiam sobreviver ao lançamento,
+            reentrada e aos rigores da microgravidade.
+          </p>
+          <div class="curiosidades">
+            <h3>Curiosidades</h3>
+            <ul>
+              <li>Sua viagem durou apenas **108 minutos**.</li>
+              <li>
+                Ele ejetou e pousou de paraquedas separadamente da cápsula
+                Vostok.
+              </li>
+              <li>Ao ver a Terra do espaço, ele disse: "A Terra é azul".</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="secao-dupla" id="secao3">
-            <div class="lado-texto">
-                <h2>Vostok 1: Yuri Gagarin</h2>
-                <p>
-                    Em 1961, o cosmonauta soviético **Yuri Gagarin** se tornou o primeiro ser humano a viajar ao espaço e orbitar a Terra. 
-            Esta missão provou que humanos poderiam sobreviver ao lançamento, reentrada e aos rigores da microgravidade.
-                </p>
-                <div class="curiosidades">
-                    <h3>Curiosidades</h3>
-                    <ul>
-                       <li>Sua viagem durou apenas **108 minutos**.</li>
-                <li>Ele ejetou e pousou de paraquedas separadamente da cápsula Vostok.</li>
-                <li>Ao ver a Terra do espaço, ele disse: "A Terra é azul".</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="lado-imagem">
+          <img
+            src="./Imgs/Soviet Satellite  _VOSTOK - 1_, Bakhytzhan Shabdukarimov.jpg"
+            alt="Vênus"
+          />
+        </div>
+      </div>
 
-            <div class="lado-imagem">
-                <img src="./Imgs/Soviet Satellite  _VOSTOK - 1_, Bakhytzhan Shabdukarimov.jpg" alt="Vênus">
-            </div>
+      <div class="secao-dupla" id="secao4">
+        <div class="lado-texto">
+          <h2>Telescópio Hubble (O Olho do Universo)</h2>
+          <p>
+            Lançado em 1990, o Telescópio Espacial Hubble revolucionou a
+            astronomia ao fornecer imagens do universo com uma clareza sem
+            precedentes, livre das distorções da atmosfera terrestre. Ele
+            confirmou a idade do universo e revelou o cosmos em detalhes.
+          </p>
+          <div class="curiosidades">
+            <h3>Curiosidades</h3>
+            <ul>
+              <li>Ele orbita a Terra a cerca de 540 km de altitude.</li>
+              <li>
+                Suas imagens são usadas para confirmar a **expansão acelerada**
+                do universo.
+              </li>
+              <li>
+                Seu sucessor é o Telescópio Espacial **James Webb (JWST)**.
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="secao-dupla" id="secao4">
-            <div class="lado-texto">
-                <h2>Telescópio Hubble (O Olho do Universo)</h2>
-                <p>
-                    Lançado em 1990, o Telescópio Espacial Hubble revolucionou a astronomia ao fornecer imagens do universo com uma clareza sem precedentes, 
-            livre das distorções da atmosfera terrestre. Ele confirmou a idade do universo e revelou o cosmos em detalhes.
-                </p>
-                <div class="curiosidades">
-                    <h3>Curiosidades</h3>
-                    <ul>
-                      <li>Ele orbita a Terra a cerca de 540 km de altitude.</li>
-                <li>Suas imagens são usadas para confirmar a **expansão acelerada** do universo.</li>
-                <li>Seu sucessor é o Telescópio Espacial **James Webb (JWST)**.</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="lado-imagem">
+          <img src="./Imgs/Hubble”.jpg" />
+        </div>
+      </div>
 
-            <div class="lado-imagem">
-                <img src="./Imgs/Hubble”.jpg">
-            </div>
+      <div class="secao-dupla" id="secao5">
+        <div class="lado-texto">
+          <h2>Sondas Voyager (Além do Sistema Solar)</h2>
+          <p>
+            As sondas Voyager 1 e 2, lançadas em 1977, são as missões de
+            exploração espacial de maior duração. Elas exploraram Júpiter e
+            Saturno (e Urano/Netuno para a Voyager 2) e são agora os únicos
+            objetos feitos pelo homem a alcançar o espaço interestelar.
+          </p>
+          <div class="curiosidades">
+            <h3>Curiosidades</h3>
+            <ul>
+              <li>
+                Ambas carregam o **"Disco de Ouro"**, um registro de sons e
+                imagens da Terra.
+              </li>
+              <li>
+                A Voyager 1 está a mais de 24 bilhões de quilômetros de
+                distância.
+              </li>
+              <li>Elas ainda enviam dados de volta para a Terra.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="secao-dupla" id="secao5">
-            <div class="lado-texto">
-                <h2>Sondas Voyager (Além do Sistema Solar)</h2>
-                <p>
-                   As sondas Voyager 1 e 2, lançadas em 1977, são as missões de exploração espacial de maior duração.
-            Elas exploraram Júpiter e Saturno (e Urano/Netuno para a Voyager 2) e são agora os únicos objetos feitos pelo homem a alcançar o espaço interestelar.
-                </p>
-                <div class="curiosidades">
-                    <h3>Curiosidades</h3>
-                    <ul>
-                        <li>Ambas carregam o **"Disco de Ouro"**, um registro de sons e imagens da Terra.</li>
-                <li>A Voyager 1 está a mais de 24 bilhões de quilômetros de distância.</li>
-                <li>Elas ainda enviam dados de volta para a Terra.</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="lado-imagem">
+          <img src="./Imgs/sonda.jpg" alt="Marte" />
+        </div>
+      </div>
 
-            <div class="lado-imagem">
-                <img src="./Imgs/sonda.jpg" alt="Marte">
-            </div>
+      <div class="quiz">
+        <button class="btn-quiz" id="btnIniciarQuiz" onclick="iniciarQuiz()">
+          Vamos testar esse conhecimento?
+        </button>
+
+        <div id="pontuacao" style="display: none">
+          <h2>Resultado Final</h2>
+          <p>Certas: <span id="spanCertas">0</span></p>
+          <p>Erradas: <span id="spanErradas">0</span></p>
+          <p>Pontuação Final: <span id="spanPontuacaoFinal">0</span></p>
+          <p id="msgFinal"></p>
+
+          <div
+            id="grafico_css"
+            style="width: 400px; height: 500px; margin: 10px auto"
+          >
+            <canvas id="grafico"></canvas>
+          </div>
+          <button onclick="tentarNovamente()" class="resetar">
+            Tentar novamente
+          </button>
         </div>
 
+        <div id="jogo" class="quiz-container">
+          <div id="infoQuestao">
+            <span
+              >Questãos sobre o as viagens espacias
+              <span id="spanNumeroDaQuestaoAtual"></span> de
+              <span id="qtdQuestoes"></span
+            ></span>
+          </div>
 
+          <h2 id="spanQuestaoExibida"></h2>
 
-        <div class="quiz">
+          <div class="opcoes">
+            <label class="option">
+              <input
+                type="radio"
+                name="option"
+                value="alternativaA"
+                id="primeiraOpcao"
+              />
+              <span id="labelOpcaoUm"></span>
+            </label>
 
+            <label class="option">
+              <input
+                type="radio"
+                name="option"
+                value="alternativaB"
+                id="segundaOpcao"
+              />
+              <span id="labelOpcaoDois"></span>
+            </label>
 
+            <label class="option">
+              <input
+                type="radio"
+                name="option"
+                value="alternativaC"
+                id="terceiraOpcao"
+              />
+              <span id="labelOpcaoTres"></span>
+            </label>
 
-            <button class="btn-quiz" onclick="quizSo()">Vamos testar esse conhecimento ?</button>
+            <label class="option">
+              <input
+                type="radio"
+                name="option"
+                value="alternativaD"
+                id="quartaOpcao"
+              />
+              <span id="labelOpcaoQuatro"></span>
+            </label>
+          </div>
+
+          <button onclick="submeter()" id="btnSubmeter" class="btn">
+            Submeter resposta
+          </button>
+          <button onclick="avancar()" id="btnProx" class="btn" disabled>
+            Avançar
+          </button>
         </div>
-        </div>
-
-
-
+      </div>
     </section>
 
-
     <footer class="footer">
-        <div class="footer-container">
-
-            <div class="footer-logo">
-                <img src="./Imgs/Logo Cosmos-tech.png" alt="Logo">
-            </div>
-            <div class="footer-social">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <img src="./Imgs/Logo Cosmos-tech.png" alt="Logo" />
+        </div>
+        <div class="footer-social">
           <a href="#">
-            <img src="./Imgs/instagram.png" alt="Instagram">
+            <img src="./Imgs/instagram.png" alt="Instagram" />
           </a>
           <a href="#">
-            <img src="./Imgs/youtube.png" alt="YouTube">
+            <img src="./Imgs/youtube.png" alt="YouTube" />
           </a>
           <a href="#">
-            <img src="./Imgs/github.png" alt="GitHub">
+            <img src="./Imgs/github.png" alt="GitHub" />
           </a>
         </div>
+      </div>
 
-        </div>
-
-        <div class="footer-copy">
-            © 2025 CosmosTech — Todos os direitos reservados.
-        </div>
+      <div class="footer-copy">
+        © 2025 CosmosTech — Todos os direitos reservados.
+      </div>
     </footer>
-
-</body>
-
+  </body>
 </html>
 
 <script>
-    window.onload = function () {
-        secao1.className = "secao-dupla aparecer";
-        secao2.className = "secao-dupla aparecer";
-        secao3.className = "secao-dupla aparecer";
-        secao4.className = "secao-dupla aparecer";
-        secao5.className = "secao-dupla aparecer";
-    };
+  window.onload = function () {
+    secao1.className = "secao-dupla aparecer";
+    secao2.className = "secao-dupla aparecer";
+    secao3.className = "secao-dupla aparecer";
+    secao4.className = "secao-dupla aparecer";
+    secao5.className = "secao-dupla aparecer";
+  };
+  var listaDeQuestoes = [
+    {
+      pergunta: "Em que local da Lua a missão Apolo 11 pousou?",
+      alternativaA: "Mar das Tempestades",
+      alternativaB: "Mar da Tranquilidad",
+      alternativaC: "Cadeia dos Apeninos",
+      alternativaD: "Planície dos Ventos",
+      alternativaCorreta: "alternativaB",
+    },
+    {
+      pergunta:
+        "Qual foi o primeiro satélite artificial colocado em órbita da Terra?",
+      alternativaA: "Explorer 1",
+      alternativaB: "Apollo 8",
+      alternativaC: "Sputnik 1",
+      alternativaD: "Vostok 1",
+      alternativaCorreta: "alternativaC",
+    },
+    {
+      pergunta: "Quem foi o primeiro ser humano a viajar ao espaço?",
+      alternativaA: "Buzz Aldrin",
+      alternativaB: "Neil Armstrong",
+      alternativaC: "John Glenn",
+      alternativaD: "Yuri Gagarin",
+      alternativaCorreta: "alternativaD",
+    },
+    {
+      pergunta:
+        "Qual telescópio forneceu imagens do universo com clareza sem precedentes desde 1990?",
+      alternativaA: "Kepler",
+      alternativaB: "James Webb",
+      alternativaC: "Hubble",
+      alternativaD: "Chandra",
+      alternativaCorreta: "alternativaC",
+    },
+  ];
 
+  var numeroDaQuestaoAtual = 0;
+  var pontuacaoFinal = 0;
+  var certas = 0;
+  var erradas = 0;
 
+  function iniciarQuiz() {
+    jogo.style.display = "block";
+    btnIniciarQuiz.style.display = "none";
+
+    qtdQuestoes.innerHTML = listaDeQuestoes.length;
+
+    preencherHTMLcomQuestaoAtual(0);
+  }
+
+  function preencherHTMLcomQuestaoAtual(index) {
+    var q = listaDeQuestoes[index];
+
+    spanNumeroDaQuestaoAtual.innerHTML = index + 1;
+    spanQuestaoExibida.innerHTML = q.pergunta;
+
+    labelOpcaoUm.innerHTML = q.alternativaA;
+    labelOpcaoDois.innerHTML = q.alternativaB;
+    labelOpcaoTres.innerHTML = q.alternativaC;
+    labelOpcaoQuatro.innerHTML = q.alternativaD;
+  }
+
+  function submeter() {
+    var questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual];
+    var resposta = questaoAtual.alternativaCorreta;
+
+    var opcoes = document.getElementsByName("option");
+    var selecionada = null;
+
+    for (var i = 0; i < opcoes.length; i++) {
+      if (opcoes[i].checked) {
+        selecionada = opcoes[i];
+        break;
+      }
+    }
+    if (!selecionada) {
+      alert("Escolha uma opção.");
+      return;
+    }
+
+    var labelCorreta = null;
+    for (var i = 0; i < opcoes.length; i++) {
+      if (opcoes[i].value === resposta) {
+        labelCorreta = opcoes[i].parentNode;
+        break;
+      }
+    }
+
+    if (selecionada.value === resposta) {
+      labelCorreta.classList.add("text-success-with-bg");
+      certas++;
+      pontuacaoFinal++;
+    } else {
+      var labelErro = selecionada.parentNode;
+      labelErro.classList.add("text-danger-with-bg");
+      labelCorreta.classList.add("text-success-with-bg");
+      erradas++;
+    }
+
+    btnSubmeter.disabled = true;
+    btnProx.disabled = false;
+  }
+  function avancar() {
+    limparCores();
+
+    numeroDaQuestaoAtual++;
+
+    if (numeroDaQuestaoAtual >= listaDeQuestoes.length) {
+      finalizarQuiz();
+      return;
+    }
+
+    btnSubmeter.disabled = false;
+    btnProx.disabled = true;
+
+    var opcoes = document.getElementsByName("option");
+    for (var i = 0; i < opcoes.length; i++) {
+      opcoes[i].checked = false;
+    }
+
+    preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual);
+  }
+  function limparCores() {
+    var opcoes = document.getElementsByClassName("option");
+
+    for (var i = 0; i < opcoes.length; i++) {
+      opcoes[i].classList.remove("text-success-with-bg");
+      opcoes[i].classList.remove("text-danger-with-bg");
+    }
+  }
+  function salvarResultadoNoBanco() {
+  fetch("/quiz/salvar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      certas: certas,
+      erradas: erradas,
+      fkUsuario: sessionStorage.ID_USUARIO,
+      fkQuiz: 2
+    }),
+  })
+    .then((res) => {
+      if (res.ok) {
+        console.log("Resultado salvo com sucesso!");
+      } else {
+        console.log("Erro ao salvar resultado.");
+      }
+    })
+    .catch((erro) => console.error("Erro no fetch:", erro));
+}
+
+  function finalizarQuiz() {
+    jogo.style.display = "none";
+    pontuacao.style.display = "block";
+
+    spanCertas.innerHTML = certas;
+    spanErradas.innerHTML = erradas;
+    spanPontuacaoFinal.innerHTML = pontuacaoFinal;
+
+    salvarResultadoNoBanco()
+
+    var porcent = pontuacaoFinal / listaDeQuestoes.length;
+
+    if (porcent < 0.3) msgFinal.innerHTML = "Parece que você não estudou!";
+    else if (porcent < 0.9) msgFinal.innerHTML = "Pode melhorar na próxima!";
+    else msgFinal.innerHTML = "Uau, parabéns!";
+
+    var ctx = grafico.getContext("2d");
+
+    new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: ["Acertos", "Erros"],
+        datasets: [
+          {
+            data: [certas, erradas],
+            backgroundColor: [
+              "rgba(0, 200, 120, 0.7)",
+              "rgba(255, 80, 80, 0.7)",
+            ],
+            borderColor: ["rgba(0, 200, 120, 1)", "rgba(255, 80, 80, 1)"],
+            borderWidth: 2,
+          },
+        ],
+      },
+      responsive: false,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: "bottom",
+          labels: { color: "#fff" },
+        },
+      },
+    });
+  }
+
+  function tentarNovamente() {
+    window.location.reload();
+  }
 </script>
