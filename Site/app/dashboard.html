@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard</title>
     <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body>
       <header class="navbar">
@@ -23,13 +25,189 @@
       </div>
     </header>
 
-    <section class="dashboard">
+  <section class="dashboard">
 
+    <div class="dashboard-container">
+        <div class="top-user">
 
+            <div class="user-info">
+                <h2>Olá, <span id="b_usuario">Usuário</span> 👋</h2>
+                <p>Bem-vindo ao seu painel de desempenho!</p>
+            </div>
 
+            <div class="kpis">
 
-    </section>
+                <div class="kpi-card">
+                    <h4>Quiz Mais Jogador</h4>
+                    <p id="quiz_mais_jogado">Ainda não jogou nenhum quiz...</p>
+                </div>
+
+                <div class="kpi-card">
+                    <h4>Maior Pontuação</h4>
+                    <p id="maior_pontuacao">Sem pontuação...</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="grafico-box">
+
+            <h3>Desempenho por Quiz</h3>
+
+            <div class="estiloGrafico">
+                <canvas id="graficoQuiz"></canvas>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
     
 </body>
 </html>
+
+<script>
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    
+    function carregarResultado(){
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/quiz/resultados/${idUsuario}`)
+        .then (res => res.json ())
+        .then (dados => {
+            console.log("Resultados recebidos: ", dados);
+            criarGrafico(dados);
+            kpis(dados);
+        })
+        .catch(err => console.log("Erro ao carregar os resultados",err));
+
+
+
+    }
+
+    function kpis(dados){
+    var quizzes = [];
+    var somaGeral = [];   
+    var somaPontuacao = []; 
+
+    for (var i = 0; i < dados.length; i++) {
+
+        var nome = dados[i].nomeQuiz;
+        var certos = Number(dados[i].totalCerto);
+        var erros = Number(dados[i].totalErrado);
+        var total = certos + erros;
+
+        var index = -1;
+
+        for (var j = 0; j < quizzes.length; j++) {
+            if (quizzes[j] === nome) {
+                index = j;
+                break;
+            }
+        }
+        if (index === -1) {
+            quizzes.push(nome);
+            somaGeral.push(total);
+            somaPontuacao.push(certos);
+        } else {
+            somaGeral[index] += total;
+            somaPontuacao[index] += certos;
+        }
+    }
+
+    // quiz mais jogado
+    var maiorGeral = 0;
+    var posMaisJogado = 0;
+
+    for (var i = 0; i < somaGeral.length; i++) {
+        if (somaGeral[i] > maiorGeral) {
+            maiorGeral = somaGeral[i];
+            posMaisJogado = i;
+        }
+    }
+
+    // Maior pontuação
+    var maiorPonto = 0;
+    var posMaiorPonto = 0;
+
+    for (var i = 0; i < somaPontuacao.length; i++) {
+        if (somaPontuacao[i] > maiorPonto) {
+            maiorPonto = somaPontuacao[i];
+            posMaiorPonto = i;
+        }
+    }
+
+        quiz_mais_jogado.innerText = quizzes[posMaisJogado];
+        maior_pontuacao.innerText = `${maiorPonto} pontos — ${quizzes[posMaisJogado]}`;
+
+    }
+    var labels = [];
+    var acertos = [];
+    var erros = [];
+    function criarGrafico(dados){
+
+        for (var i = 0; i < dados.length; i++) {
+            labels.push(dados[i].nomeQuiz);
+            acertos.push(dados[i].totalCerto);
+            erros.push(dados[i].totalErrado);
+        }
+
+        const ctx = document.getElementById("graficoQuiz").getContext("2d");
+
+        new Chart(ctx,{
+            type: "bar",
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: "Acertos",
+                    data: acertos,
+                    backgroundColor: "rgba(79, 224, 255, 0.6)",    
+                    borderColor: "rgba(79, 224, 255, 1)",          
+                    borderRadius: 7
+                },
+                {
+                    label: "Erros",
+                    data: erros,
+                    backgroundColor: "rgba(255, 99, 132, 0.6)",     
+                    borderColor: "rgba(255, 99, 132, 1)",             
+                    borderWidth: 2,
+                    borderRadius: 7
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: "#00bfff",
+                        font: { size: 18 }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: "#4fe0ff"
+                    },
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: "#4fe0ff"
+                    },
+                    
+                }
+            },
+            
+        }
+    });
+
+    }
+carregarResultado()
+</script>

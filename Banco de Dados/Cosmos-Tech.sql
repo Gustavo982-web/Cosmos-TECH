@@ -12,11 +12,11 @@ CREATE TABLE quiz (
     nome VARCHAR(100)
 );
 insert into  quiz VALUES(
-1,'Sistema Sistema solar'
+1,'Sistema solar'
 );
 
 insert into  quiz VALUES(
-2,'Sistema Viagens espacias'
+2,'Viagens espacias'
 );
 
 select * from usuario;

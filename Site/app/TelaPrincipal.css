@@ -168,69 +168,74 @@
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
 }
 .content {
-  background-color: #0a1f44;
   width: 100%;
-  height: 500px;
-  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+
 }
 
  .principal{
   font-size: 30px;
-  font-family: 'Orbitron',sans-serif;
-  font-weight: 600;  
-  font-style: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  top: 40px;
-  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+.aprender{
+     background-image: url(./Imgs/2151075840.jpg);
+     background-size: cover;
+    background-position: center;
+    padding: 80px 60px ;
+    backdrop-filter: brightness(0.9);
 
 }
+
 .aprender .viagem{
     color:#00eaff;
-    font-weight: 600;
-    font-size: 35px;
-    position: relative;
-    margin-top: 70px;
-    margin-left: 60px;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.2;
+    text-shadow: 0 0 10px #00eaff;
 
 
 }
 .aprender p{
-    color: white;
-    font-weight: 300;
+    color: #00eaff;
+    max-height: 600px;
+    line-height: 1.5;
     font-size: 20px;
-    position: relative;
-    margin-top: 30px;
-    margin-bottom: 70px;
-    margin-left: 60px;
+    margin-top: 25px;
 
 
 }
-.sistemaSo{
-  background-color: #035fc0;
-   width: 100%;
-  height: 400px;
+.sistemaSo {
+  background-image: url(./Imgs/vista-3d-sol-no-espaco.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 80px 60px;
   display: flex;
-  justify-content: end;
-}
-.sistemaSo h1{
-    color:#0a1f44;
-    font-weight: 600;
-    font-size: 35px;
-    position: relative;
-    right: -450px;
-    bottom: -50px;
-   
-}
-.sistemaSo p{
+  flex-direction: column;
+  align-items: flex-end;
   color: white;
-    font-weight: 300;
-    font-size: 20px;
-    position: relative;
-    bottom: -170px;
-    left: -50px;
+  backdrop-filter: brightness(0.9);
+}
+
+.sistemaSo h1 {
+  color: #b3d1ff;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: right;
+  text-shadow: 0 0 10px #000;
+}
+
+.sistemaSo p {
+  margin-top: 20px;
+  max-width: 500px;
+  line-height: 1.5;
+  text-align: right;
+  font-size: 20px;
+  color: #f3f3f3;
 }
 .footer {
   height: 150px;

@@ -14,7 +14,24 @@ function salvar(req, res) {
             res.status(500).json(erro);
         });
 }
+function buscarResultados(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    quizModel.buscarResultados(idUsuario)
+        .then((resultado) => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch((erro) => {
+            console.log("Erro ao buscar resultados:", erro);
+            res.status(500).json(erro);
+        });
+    }
 
 module.exports = {
-    salvar
+    salvar,
+    buscarResultados
 };

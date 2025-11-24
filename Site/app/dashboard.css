@@ -65,7 +65,101 @@
   color: #ffffff;
 }
 .dashboard {
-  background: #020b18;
-  color: white;
-  padding-bottom: 60px;
+    background-color: #03142b;
+    color: #e8f9ff;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-container {
+  background-size: cover;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.top-user {
+    background: #0b1624;
+    padding: 30px;
+    border-radius: 18px;
+    border:1px solid rgba(0,234,255,0.15);
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.05);
+}
+
+.user-info h2 {
+    color: #7ee9ff;
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.user-info p {
+    color: #9fd8ff;
+}
+
+.kpis {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.kpi-card {
+    flex: 1;
+    min-width: 150px;
+    background: #07101c;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #00bfff44;
+    text-align: center;
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.05);
+    transition: transform 0.2s;
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+}
+
+.kpi-card h4 {
+    color: #00d0ff;
+    margin-bottom: 8px;
+}
+
+.kpi-card p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.grafico-box {
+    padding: 20px;
+    border-radius: 18px;
+    border:1px solid rgba(0,234,255,0.15);
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.05);
+}
+
+.grafico-box h3 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+.estiloGrafico {
+    background: #07101c;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #00bfff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#graficoQuiz {
+    width: 100%;
+    max-width: 900px;
+    height: 300px;
 }
