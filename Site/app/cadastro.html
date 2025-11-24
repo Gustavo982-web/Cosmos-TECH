@@ -48,6 +48,8 @@
           type="password"
           placeholder="Confirme sua senha"
         />
+        
+        <div id="div_alert"></div>
         <button onclick="cadastra()"> Cadastrar </button>
       </div>
     </main>
@@ -61,11 +63,16 @@
     var senha = ipt_senha.value;
     var conf = confirmar.value;
 
-    if(nome== ' '|| email ==' '|| senha == ' '|| conf==' '){
+    if(nome== ''|| email == ''|| senha == ''|| conf ==''){
       alert('Informe todos os dados')
 
     }
     else{
+
+      if(senha !== conf){
+        alert('A confirmação da sua senha precias ser igual a senha')
+      }
+      else{
        // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -85,7 +92,7 @@
 
         if (resposta.ok) {
 
-          alert(
+          div_alert.innerHTML=(
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
           setTimeout(() => {
@@ -93,7 +100,7 @@
           }, "2000");
 
         } else {
-          alert( "Houve um erro ao tentar realizar o cadastro!");
+          div_alert.innerHTML( "Houve um erro ao tentar realizar o cadastro!");
         }
       })
       .catch(function (resposta) {
@@ -102,8 +109,8 @@
 
     return false;
   }
-
-
     }
+
+  }
   
 </script>
