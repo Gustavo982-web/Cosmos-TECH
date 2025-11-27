@@ -18,7 +18,7 @@
 </div>
 
 <nav class="menu">
-<a href="./telaPrincipal.html"> Início</a>
+<a href="./index.html"> Início</a>
 <a class="active" href="./login.html">Login</a>
 <a href="./cadastro.html">Cadastro</a>
 </nav>
@@ -43,6 +43,8 @@
     <label for="senha">Digite sua senha</label>
     <input id="ipt_senha" type="password" placeholder="Sua senha">
 
+
+    <div style="color: rgb(32, 32, 32); font-size: 15px; font-weight: 700;" id="div_alert"></div>
     <button onclick="login()" type="submit">Login</button>
 
   </div>
@@ -58,7 +60,7 @@ function login() {
     var senha = ipt_senha.value;
 
     if(email ===' '|| senha === ' '){
-      alert('Informe todos os dados')
+      div_alert.innerHTML=('Informe todos os dados')
 
     }
     else{
@@ -75,7 +77,7 @@ function login() {
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
-              alert('Login')
+              div_alert.innerHTML=('Login realizado com sucesso')
                 console.log(resposta);
 
                 resposta.json().then(json => {
@@ -92,7 +94,7 @@ function login() {
 
             } else {
 
-                console.log("Houve um erro ao tentar realizar o login!");
+                div_alert.innerHTML=("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
                     console.error(texto);

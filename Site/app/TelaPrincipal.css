@@ -186,8 +186,7 @@
      background-image: url(./Imgs/2151075840.jpg);
      background-size: cover;
     background-position: center;
-    padding: 80px 60px ;
-    backdrop-filter: brightness(0.9);
+    padding: 80px 60px;
 
 }
 
@@ -196,7 +195,7 @@
     font-weight: 700;
     font-size: 42px;
     line-height: 1.2;
-    text-shadow: 0 0 10px #00eaff;
+    text-shadow: 0 0 20px #00eaff;
 
 
 }
@@ -210,19 +209,18 @@
 
 }
 .sistemaSo {
-  background-image: url(./Imgs/vista-3d-sol-no-espaco.jpg);
+  background-image: url(./Imgs/ai-generated-9248643_1920.jpg);
   background-size: cover;
   background-position: center;
-  padding: 80px 60px;
+  padding: 100px 60px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   color: white;
-  backdrop-filter: brightness(0.9);
 }
 
 .sistemaSo h1 {
-  color: #b3d1ff;
+  color: #d5dfee;
   font-size: 40px;
   font-weight: 700;
   text-align: right;

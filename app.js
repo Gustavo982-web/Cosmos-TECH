@@ -21,7 +21,7 @@ var quizRouter= require("./src/routes/quiz");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, "site",'app')));
+app.use(express.static(path.join(__dirname, "Site",'app')));
 
 app.use(cors());
 

@@ -191,7 +191,7 @@
 
           <div
             id="grafico_css"
-            style="width: 400px; height: 500px; margin: 10px auto"
+            style="width: 400px; height: 450px; margin: 10px auto"
           >
             <canvas id="grafico"></canvas>
           </div>
@@ -282,7 +282,7 @@
       </div>
 
       <div class="footer-copy">
-        © 2025 CosmosTech — Todos os direitos reservados.
+        © 2025 Gustavo Henrique — Todos os direitos reservados.
       </div>
     </footer>
   </body>
@@ -369,19 +369,18 @@
     for (var i = 0; i < opcoes.length; i++) {
       if (opcoes[i].checked) {
         selecionada = opcoes[i];
-        break;
+        
       }
     }
     if (!selecionada) {
       alert("Escolha uma opção.");
-      return;
+      
     }
 
     var labelCorreta = null;
     for (var i = 0; i < opcoes.length; i++) {
       if (opcoes[i].value === resposta) {
         labelCorreta = opcoes[i].parentNode;
-        break;
       }
     }
 
@@ -406,7 +405,6 @@
 
     if (numeroDaQuestaoAtual >= listaDeQuestoes.length) {
       finalizarQuiz();
-      return;
     }
 
     btnSubmeter.disabled = false;
@@ -460,11 +458,9 @@
 
     salvarResultadoNoBanco()
 
-    var porcent = pontuacaoFinal / listaDeQuestoes.length;
-
-    if (porcent < 0.3) msgFinal.innerHTML = "Parece que você não estudou!";
-    else if (porcent < 0.9) msgFinal.innerHTML = "Pode melhorar na próxima!";
-    else msgFinal.innerHTML = "Uau, parabéns!";
+    if (pontuacaoFinal < 2) msgFinal.innerHTML = "Parece que você acertou poucas, continue treinando !";
+    else if (pontuacaoFinal < 3) msgFinal.innerHTML = "Pode melhorar na próxima !";
+    else msgFinal.innerHTML = "Uau, parabéns, gosta bastante do universo né !";
 
     var ctx = grafico.getContext("2d");
 

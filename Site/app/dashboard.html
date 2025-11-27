@@ -88,62 +88,39 @@
 
     }
 
-    function kpis(dados){
-    var quizzes = [];
-    var somaGeral = [];   
-    var somaPontuacao = []; 
+    function kpis(dados){ 
 
-    for (var i = 0; i < dados.length; i++) {
+   var quizMaisJogado=null;
+
+   var maiorJogadoValor=-1;
+   var quizMaisPontuacao=null;
+
+   var maiorPontoValor=-1;
+
+     for (var i = 0; i < dados.length; i++) {
 
         var nome = dados[i].nomeQuiz;
         var certos = Number(dados[i].totalCerto);
         var erros = Number(dados[i].totalErrado);
         var total = certos + erros;
 
-        var index = -1;
-
-        for (var j = 0; j < quizzes.length; j++) {
-            if (quizzes[j] === nome) {
-                index = j;
-                break;
-            }
+        if (total > maiorJogadoValor) {
+            maiorJogadoValor = total;
+            quizMaisJogado = nome;
         }
-        if (index === -1) {
-            quizzes.push(nome);
-            somaGeral.push(total);
-            somaPontuacao.push(certos);
-        } else {
-            somaGeral[index] += total;
-            somaPontuacao[index] += certos;
+
+        if (certos > maiorPontoValor) {
+            maiorPontoValor = certos;
+            quizMaiorPontuacao = nome;
         }
     }
 
-    // quiz mais jogado
-    var maiorGeral = 0;
-    var posMaisJogado = 0;
+    quiz_mais_jogado.innerText = quizMaisJogado;
+    maior_pontuacao.innerText = `${maiorPontoValor} pontos — ${quizMaiorPontuacao}`;
 
-    for (var i = 0; i < somaGeral.length; i++) {
-        if (somaGeral[i] > maiorGeral) {
-            maiorGeral = somaGeral[i];
-            posMaisJogado = i;
-        }
-    }
+ }
 
-    // Maior pontuação
-    var maiorPonto = 0;
-    var posMaiorPonto = 0;
 
-    for (var i = 0; i < somaPontuacao.length; i++) {
-        if (somaPontuacao[i] > maiorPonto) {
-            maiorPonto = somaPontuacao[i];
-            posMaiorPonto = i;
-        }
-    }
-
-        quiz_mais_jogado.innerText = quizzes[posMaisJogado];
-        maior_pontuacao.innerText = `${maiorPonto} pontos — ${quizzes[posMaisJogado]}`;
-
-    }
     var labels = [];
     var acertos = [];
     var erros = [];
