@@ -1,5 +1,6 @@
 var quizModel = require("../models/quizModel");
 
+
 function salvar(req, res) {
     var certas = req.body.certas;
     var erradas = req.body.erradas;
@@ -15,7 +16,7 @@ function salvar(req, res) {
         });
 }
 function buscarResultados(req, res) {
-    var idUsuario = req.params.idUsuario;
+    var idUsuario =  sessionStorage.idUsuario;
 
     quizModel.buscarResultados(idUsuario)
         .then((resultado) => {
