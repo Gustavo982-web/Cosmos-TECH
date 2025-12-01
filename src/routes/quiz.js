@@ -3,6 +3,8 @@ var router = express.Router();
 
 var quizController = require("../controllers/quizController");
 
+
+// daqui vou para o controllers
 router.post("/salvar", function (req, res) {
     quizController.salvar(req, res);
 });

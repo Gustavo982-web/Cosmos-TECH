@@ -71,7 +71,9 @@
 <script>
         b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
+
     
+        // função que vai coletar carregador todos os resultados das função criarGráfico e a 
     function carregarResultado(){
         var idUsuario = sessionStorage.ID_USUARIO;
 
@@ -87,6 +89,8 @@
 
 
     }
+
+    // função que vai criar as kpis
 
     function kpis(dados){ 
 
@@ -115,8 +119,8 @@
         }
     }
 
-    quiz_mais_jogado.innerText = quizMaisJogado;
-    maior_pontuacao.innerText = `${maiorPontoValor} pontos — ${quizMaiorPontuacao}`;
+    quiz_mais_jogado.innerHTML = quizMaisJogado;
+    maior_pontuacao.innerHTML= `${maiorPontoValor} pontos — ${quizMaiorPontuacao}`;
 
  }
 

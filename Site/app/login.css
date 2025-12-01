@@ -89,6 +89,8 @@ color: #fff;
   height: auto;
   z-index: 0;
 }
+/* transform serve para ajustar a posição de um elemento deslocando-o proporcionalmente ao seu próprio tamanho, 
+usei ele para deixar o video centralizado na div pai */ 
 
 
 .content {

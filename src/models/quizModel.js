@@ -16,6 +16,7 @@ function salvar(certas, erradas, fkUsuario,fkQuiz) {
     return database.executar(instrucao);
 }
 
+// pegando os dados do banco
 function buscarResultados(idUsuario){
 var instrucao=`  SELECT 
             quiz.nome AS nomeQuiz,
