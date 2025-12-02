@@ -89,7 +89,6 @@
     border:1px solid rgba(0,234,255,0.15);
     box-shadow: 0 0 15px rgba(0, 234, 255, 0.05);
 }
-
 .user-info h2 {
     color: #7ee9ff;
     font-size: 28px;
@@ -162,4 +161,18 @@
     width: 100%;
     max-width: 900px;
     height: 300px;
+}
+.graficos-lado {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.grafico-item {
+    width: 50%;
+}
+
+.grafico-item .estiloGrafico {
+    height: 320px;  
 }

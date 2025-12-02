@@ -1,194 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DashBoard</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="dashboard.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 </head>
-<body>
-      <header class="navbar">
-      <div class="logo">
-        <img src="./Imgs/ICONE.png" alt="Cosmos Tech Logo" />
-        <span>
-          <span class="cosmos">COSMOS</span>
-          <span class="tech">TECH</span>
-        </span>
 
-        <nav class="menu">
-          <a href="software.html"> Nosso Lar</a>
-          <a href="viagens.html">Viagens</a>
-          <a class="active" href="dashboard.html">Dashboard</a>
-        </nav>
-      </div>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="./Imgs/ICONE.png" alt="Cosmos Tech Logo" />
+            <span>
+                <span class="cosmos">COSMOS</span>
+                <span class="tech">TECH</span>
+            </span>
+
+            <nav class="menu">
+                <a href="software.html"> Nosso Lar</a>
+                <a href="viagens.html">Viagens</a>
+                <a class="active" href="dashboard.html">Dashboard</a>
+            </nav>
+        </div>
     </header>
 
-  <section class="dashboard">
-
-    <div class="dashboard-container">
-        <div class="top-user">
-
-            <div class="user-info">
-                <h2>Olá, <span id="b_usuario">Usuário</span> 👋</h2>
-                <p>Bem-vindo ao seu painel de desempenho!</p>
-            </div>
-
-            <div class="kpis">
-
-                <div class="kpi-card">
-                    <h4>Quiz Mais Jogador</h4>
-                    <p id="quiz_mais_jogado">Ainda não jogou nenhum quiz...</p>
+    <section class="dashboard">
+        <div class="dashboard-container">
+            <div class="top-user">
+                <div class="user-info">
+                    <h2>Olá, <span id="b_usuario">Usuário</span> 👋</h2>
+                    <p>Bem-vindo ao seu painel de desempenho!</p>
                 </div>
 
-                <div class="kpi-card">
-                    <h4>Maior Pontuação</h4>
-                    <p id="maior_pontuacao">Sem pontuação...</p>
+                <div class="kpis">
+                    <div class="kpi-card">
+                        <h4>Quiz Mais Jogador</h4>
+                        <p id="quiz_mais_jogado">Ainda não jogou nenhum quiz...</p>
+                    </div>
+
+                    <div class="kpi-card">
+                        <h4>Maior Pontuação</h4>
+                        <p id="maior_pontuacao">Sem pontuação...</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Quanto você jogou o quiz Sistema solar</h4>
+                        <p id="qtdSolarMsg">Sem pontuação...</p>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Quanto você jogou o quiz de viagens espacias</h4>
+                        <p id="qtdViagensMsg">Sem pontuação...</p>
+                    </div>
                 </div>
-
-            </div>
-        </div>
-
-        <div class="grafico-box">
-
-            <h3>Desempenho por Quiz</h3>
-
-            <div class="estiloGrafico">
-                <canvas id="graficoQuiz"></canvas>
             </div>
 
+            <div class="grafico-box">
+                <div class="graficos-lado">
+                    <div class="grafico-item">
+                        <h3>Desempenho(%) — Sistema Solar </h3>
+                        <div class="estiloGrafico">
+                            <canvas id="graficoSistemaSolar"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="grafico-item">
+                        <h3>Desempenho (%) — Viagens Espaciais %</h3>
+                        <div class="estiloGrafico">
+                            <canvas id="graficoViagensEspaciais"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </div>
-
-</section>
-
-    
+    </section>
 </body>
+
 </html>
 
 <script>
-        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-
-    
-        // função que vai coletar carregador todos os resultados das função criarGráfico e a 
-    function carregarResultado(){
+    // função que vai coletar carregador todos os resultados das função criarGráfico e a
+    function carregarResultado() {
         var idUsuario = sessionStorage.ID_USUARIO;
 
         fetch(`/quiz/resultados/${idUsuario}`)
-        .then (res => res.json ())
-        .then (dados => {
-            console.log("Resultados recebidos: ", dados);
-            criarGrafico(dados);
-            kpis(dados);
-        })
-        .catch(err => console.log("Erro ao carregar os resultados",err));
-
-
-
+            .then((res) => res.json())
+            .then((dados) => {
+                console.log("Resultados recebidos: ", dados);
+                criarGrafico(dados);
+                kpis(dados);
+            })
+            .catch((err) => console.log("Erro ao carregar os resultados", err));
     }
 
     // função que vai criar as kpis
 
-    function kpis(dados){ 
+    function kpis(dados) {
+        var quizMaisJogado = null;
 
-   var quizMaisJogado=null;
+        var maiorJogadoValor = -1;
+        var quizMaisPontuacao = null;
 
-   var maiorJogadoValor=-1;
-   var quizMaisPontuacao=null;
+        var maiorPontoValor = -1;
 
-   var maiorPontoValor=-1;
-
-     for (var i = 0; i < dados.length; i++) {
-
-        var nome = dados[i].nomeQuiz;
-        var certos = Number(dados[i].totalCerto);
-        var erros = Number(dados[i].totalErrado);
-        var total = certos + erros;
-
-        if (total > maiorJogadoValor) {
-            maiorJogadoValor = total;
-            quizMaisJogado = nome;
-        }
-
-        if (certos > maiorPontoValor) {
-            maiorPontoValor = certos;
-            quizMaiorPontuacao = nome;
-        }
-    }
-
-    quiz_mais_jogado.innerHTML = quizMaisJogado;
-    maior_pontuacao.innerHTML= `${maiorPontoValor} pontos — ${quizMaiorPontuacao}`;
-
- }
-
-
-    var labels = [];
-    var acertos = [];
-    var erros = [];
-    function criarGrafico(dados){
+        var qtdSolar = 0;
+        var qtdViagens = 0;
 
         for (var i = 0; i < dados.length; i++) {
-            labels.push(dados[i].nomeQuiz);
+            var nome = dados[i].nomeQuiz;
+            var certos = Number(dados[i].totalCerto);
+            var erros = Number(dados[i].totalErrado);
+            var total = certos + erros;
+
+            if (total > maiorJogadoValor) {
+                maiorJogadoValor = total;
+                quizMaisJogado = nome;
+            }
+
+            if (certos > maiorPontoValor) {
+                maiorPontoValor = certos;
+                quizMaiorPontuacao = nome;
+            }
+            if (nome.includes("Sistema solar")) {
+                qtdSolar += (certos + erros)/4;
+            }
+
+            if (nome.includes("Viagens espaciais")) {
+                qtdViagens += (certos + erros)/4;
+            }
+        }
+
+        if (qtdSolar == 0) {
+            qtdSolarMsg.innerHTML = "Nunca jogou"
+        }
+        else {
+            qtdSolarMsg.innerHTML = `${qtdSolar} vezes`
+        };
+
+        if (qtdViagens == 0) {
+            qtdViagensMsg.innerHTML = "Nunca jogou"
+        }
+        else {
+            qtdViagensMsg.innerHTML = `${qtdViagens} vezes`
+        };
+
+        quiz_mais_jogado.innerHTML = quizMaisJogado;
+        maior_pontuacao.innerHTML = `${maiorPontoValor} pontos — ${quizMaiorPontuacao}`;
+    }
+
+    function criarGrafico(dados) {
+        var nomes = [];
+        var acertos = [];
+        var erros = [];
+
+        var nomeSolar = [];
+        var acertosSolar = [];
+        var errosSolar = [];
+
+        var nomeViagens = [];
+        var acertosViagens = [];
+        var errosViagens = [];
+
+        var somaAcertosSolar = 0;
+        var somaErrosSolar = 0;
+
+        var somaAcertosViagens = 0;
+        var somaErrosViagens = 0;
+
+        for (var i = 0; i < dados.length; i++) {
+            nomes.push(dados[i].nomeQuiz);
             acertos.push(dados[i].totalCerto);
             erros.push(dados[i].totalErrado);
+
+            if (dados[i].nomeQuiz.includes("Sistema solar")) {
+                nomeSolar.push(dados[i].nomeQuiz);
+                acertosSolar.push(dados[i].totalCerto);
+                errosSolar.push(dados[i].totalErrado);
+
+
+                somaAcertosSolar += Number(dados[i].totalCerto);
+                somaErrosSolar += Number(dados[i].totalErrado);
+
+            }
+            if (dados[i].nomeQuiz.includes("Viagens espaciais")) {
+                nomeViagens.push(dados[i].nomeQuiz);
+                acertosViagens.push(dados[i].totalCerto);
+                errosViagens.push(dados[i].totalErrado);
+
+                somaAcertosViagens += Number(dados[i].totalCerto);
+                somaErrosViagens += Number(dados[i].totalErrado);
+            }
         }
 
-        const ctx = document.getElementById("graficoQuiz").getContext("2d");
+        var acertosSolarPorc = 0;
+        var errosSolarPorc = 0;
 
-        new Chart(ctx,{
-            type: "bar",
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: "Acertos",
-                    data: acertos,
-                    backgroundColor: "rgba(79, 224, 255, 0.6)",    
-                    borderColor: "rgba(79, 224, 255, 1)",          
-                    borderRadius: 7
-                },
-                {
-                    label: "Erros",
-                    data: erros,
-                    backgroundColor: "rgba(255, 99, 132, 0.6)",     
-                    borderColor: "rgba(255, 99, 132, 1)",             
-                    borderWidth: 2,
-                    borderRadius: 7
-                }
-            ]
-        },
+        var acertosViagensPorc = 0;
+        var errosViagensPorc = 0;
 
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    labels: {
-                        color: "#00bfff",
-                        font: { size: 18 }
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: "#4fe0ff"
-                    },
-                },
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: "#4fe0ff"
-                    },
-                    
-                }
-            },
-            
+        var totalSolar = somaAcertosSolar + somaErrosSolar;
+        var totalViagens = somaAcertosViagens + somaErrosViagens;
+
+
+        if (totalSolar === 0) {
+            acertosSolarPorc = 0;
+            errosSolarPorc = 0;
+        } else {
+            acertosSolarPorc = (somaAcertosSolar / totalSolar) * 100;
+            errosSolarPorc = (somaErrosSolar / totalSolar) * 100;
         }
-    });
+
+        if (totalViagens === 0) {
+            acertosViagensPorc = 0;
+            errosViagensPorc = 0;
+        } else {
+            acertosViagensPorc = (somaAcertosViagens / totalViagens) * 100;
+            errosViagensPorc = (somaErrosViagens / totalViagens) * 100;
+        }
+
+
+
+
+
+        const ctx1 = document.getElementById("graficoSistemaSolar").getContext("2d");
+        new Chart(ctx1, {
+            type: "pie",
+            data: {
+                labels: ["Acertos", "Erros"],
+                datasets: [{
+                    data: [acertosSolarPorc, errosSolarPorc],
+                    backgroundColor: [
+                        "rgba(79, 224, 255, 0.6)",
+                        "rgba(255, 99, 132, 0.6)"
+                    ]
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        const ctx2 = document.getElementById("graficoViagensEspaciais").getContext("2d");
+        new Chart(ctx2, {
+            type: "pie",
+            data: {
+                labels: ["Acertos", "Erros"],
+                datasets: [{
+                    data: [acertosViagensPorc, errosViagensPorc],
+                    backgroundColor: [
+                        "rgba(79, 224, 255, 0.6)",
+                        "rgba(255, 99, 132, 0.6)"
+                    ]
+                }]
+            },
+            options: { responsive: true }
+        });
 
     }
-carregarResultado()
+
+    carregarResultado();
 </script>
