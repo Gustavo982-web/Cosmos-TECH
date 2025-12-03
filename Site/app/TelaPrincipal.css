@@ -82,7 +82,7 @@
     font-family: 'Poppins', sans-serif;
     position: relative;
     overflow: hidden;
-    transition: background-image 3s ease-in-out;
+    transition: background-b 3s ease-in-out;
 
 }
 
@@ -99,7 +99,7 @@
     margin-bottom: 20px;
     font-weight: 500;
 }
-
+/* -- Ela faz com que o fundo (background) seja recortado no formato do texto */
 .cosmos-tech {
     background: linear-gradient(45deg, #00eaff, #8a2be2);
   -webkit-background-clip: text; 

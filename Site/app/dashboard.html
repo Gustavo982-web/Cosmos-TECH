@@ -79,6 +79,8 @@
 </html>
 
 <script>
+
+    // fetch busca dados da API
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     // função que vai coletar carregador todos os resultados das função criarGráfico e a
@@ -98,6 +100,8 @@
     // função que vai criar as kpis
 
     function kpis(dados) {
+
+        // os dados começa em nagativo pois se começa com zero e ele fez 0 quiz vai falhar na validação do if 
         var quizMaisJogado = null;
 
         var maiorJogadoValor = -1;
@@ -113,6 +117,8 @@
             var certos = Number(dados[i].totalCerto);
             var erros = Number(dados[i].totalErrado);
             var total = certos + erros;
+
+        
 
             if (total > maiorJogadoValor) {
                 maiorJogadoValor = total;
@@ -176,7 +182,7 @@
 
             if (dados[i].nomeQuiz.includes("Sistema solar")) {
                 nomeSolar.push(dados[i].nomeQuiz);
-                acertosSolar.push(dados[i].totalCerto);
+                acertosSolar.push(dados[i].totalCerto);  
                 errosSolar.push(dados[i].totalErrado);
 
 

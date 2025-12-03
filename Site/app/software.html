@@ -458,6 +458,7 @@
       certas++;
       pontuacaoFinal++;
     } else {
+      // parentNode pega o elemento pai do elemento atual no HTML
       var labelErro = selecionada.parentNode;
       labelErro.classList.add("text-danger-with-bg");
       labelCorreta.classList.add("text-success-with-bg");
