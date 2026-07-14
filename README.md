@@ -1,105 +1,145 @@
-<img src="https://user-images.githubusercontent.com/46379117/192358781-9ca879e4-e55e-4d0d-b876-f9a4a2ed9ae8.png" width="600px">
+# 🚀 Cosmos-TECH
 
-_Web Data Visualization = Visualização de Dados na Web_
+Plataforma educacional interativa sobre o universo — aprenda sobre o Sistema Solar e viagens espaciais através de conteúdos e quizzes.
 
-_Implementação de Referência para o seu Projeto de Primeiro Semestre_
+## 📋 Tecnologias
 
-<hr>
+- **Backend:** Node.js + Express
+- **Banco de Dados:** MySQL 8.0 (local via Docker ou AWS RDS)
+- **Frontend:** HTML5, CSS3, JavaScript, Chart.js
+- **Infraestrutura:** Docker + Docker Compose
 
-# Como usar
-
-1. Clone este repositório em sua máquina.
-
-
-1. Crie, no Banco de Dados, as tabelas necessárias para o funcionamento deste projeto.
-- Siga as instruções no arquivo **/src/database/script-tabelas.sql**
-
-
-3. Acesse o arquivo **app.js** e parametrize o ambiente.
-- Se você estiver utilizando o Ambiente de Produção (remoto), comente a linha 2 e deixe habilitada a linha 1 onde está o valor **var ambiente_processo = 'producao';**
-- Se você estiver utilizando o Ambiente de Desenvolvimento (local), comente a linha 1 e deixe habilitada a linha 2 onde está o valor **var ambiente_processo = 'desenvolvimento';**
-
-4. Adicione as credenciais de Banco de Dados no arquivo **.env** ou em **.env.dev**, seguindo as instruções neste.
-
-5. Acesse este repositório no seu terminal (GitBash ou VSCode) e execute os comandos abaixo:
+## 📁 Estrutura do Projeto
 
 ```
-npm i
-``` 
-_O comando acima irá instalar as bibliotecas necessárias para o funcionamento do projeto. As bibliotecas a serem instaladas estão listadas no arquivo **package.json** então é muito importante que este não seja alterado. Será criada uma nova pasta/diretório chamado **node_modules** quando o comando for finalizado, que é onde as bibliotecas estão localizadas. Não altere a pasta/diretório._
-
+Cosmos-TECH/
+├── app.js                    # Ponto de entrada da aplicação
+├── package.json
+├── Dockerfile
+├── docker-compose.yml
+├── .env                      # Config produção (RDS AWS)
+├── .env.dev                  # Config desenvolvimento (MySQL local)
+├── .env.example              # Template de variáveis de ambiente
+├── docker/
+│   └── mysql/
+│       └── init.sql          # Script de inicialização do banco
+├── src/
+│   ├── database/
+│   │   └── config.js         # Connection pool com suporte a SSL/RDS
+│   ├── controllers/
+│   │   ├── usuarioController.js
+│   │   └── quizController.js
+│   ├── models/
+│   │   ├── usuarioModel.js
+│   │   └── quizModel.js
+│   └── routes/
+│       ├── index.js
+│       ├── usuarios.js
+│       └── quiz.js
+└── Site/app/
+    ├── global.css            # Estilos globais (variáveis, navbar, footer)
+    ├── index.html            # Landing page
+    ├── login.html/css        # Tela de login
+    ├── cadastro.html/css     # Tela de cadastro
+    ├── software.html/css     # Quiz Sistema Solar
+    ├── viagens.html/css      # Quiz Viagens Espaciais
+    └── dashboard.html/css    # Dashboard de resultados
 ```
+
+## 🚀 Como Rodar
+
+### Opção 1: Docker Compose (Recomendado)
+
+#### Desenvolvimento (MySQL local)
+
+```bash
+docker compose --profile dev up --build
+```
+
+Isso inicia:
+- App Node.js na porta **3333**
+- MySQL 8.0 na porta **3306** (com banco e tabelas criados automaticamente)
+
+Acesse: http://localhost:3333
+
+#### Produção (Conectando ao RDS AWS)
+
+1. Edite o arquivo `.env` com os dados do seu RDS:
+
+```env
+NODE_ENV=production
+DB_HOST=seu-endpoint.region.rds.amazonaws.com
+DB_DATABASE=cosmos
+DB_USER=admin
+DB_PASSWORD=sua-senha-segura
+DB_PORT=3306
+APP_PORT=8080
+APP_HOST=0.0.0.0
+```
+
+2. Suba a aplicação:
+
+```bash
+docker compose --profile prod up --build
+```
+
+Acesse: http://localhost:8080
+
+### Opção 2: Rodar Local (sem Docker)
+
+```bash
+# Instalar dependências
+npm install
+
+# Desenvolvimento (precisa de MySQL rodando local)
+npm run dev
+
+# Produção
 npm start
-``` 
+```
 
-_O comando acima irá iniciar seu projeto e efetuar os comandos de acordo com a sua parametrização feita nos passos anteriores._
+## 🗄️ Configuração do RDS MySQL na AWS
 
-6. Para "ver" seu projeto funcionando, acesse em seu navegador o caminho **informado no terminal**.
+Para conectar com o Amazon RDS:
 
-7. Caso queira parar a execução, tecle **CTRL+C** no terminal em que o projeto está rodando.
+1. **Crie uma instância RDS MySQL 8.0** na AWS
+2. **Configure o Security Group** para permitir conexões na porta 3306 do IP/VPC da sua aplicação
+3. **Crie o banco de dados `cosmos`** no RDS:
+   ```sql
+   CREATE DATABASE cosmos;
+   ```
+4. **Execute o script de tabelas** (`docker/mysql/init.sql`) no RDS usando um client MySQL:
+   ```bash
+   mysql -h seu-endpoint.rds.amazonaws.com -u admin -p cosmos < docker/mysql/init.sql
+   ```
+5. **Atualize o `.env`** com o endpoint e credenciais do RDS
+6. **Suba a aplicação** com `docker compose --profile prod up --build`
 
-## Adicionar novo recurso ao projeto
+> A conexão já possui SSL habilitado automaticamente em modo produção para comunicação segura com o RDS.
 
-**"Recurso? O que é?"** Enquanto no Banco de Dados chamamos as tabelas de "entidades", quando tratamos de desenvolvimento WEB usamos a palavra "recurso" para se referir a algo que podemos criar, ler, atualizar ou deletar [1]. Estas ações são conhecidas como CRUD: Create, Read, Update e Delete. Para acessar cada ação, usamos os métodos HTTP: POST, GET, PUT e DELETE [2]. (Há outros verbos, porém com estes já conseguimos efetuar CRUDs). 
+## 🛑 Parar a Aplicação
 
-**Tabela para ajudar a fazer a associação**
+```bash
+# Parar containers
+docker compose --profile dev down
 
-<table>
-  <tr>
-    <th>C.R.U.D</th>
-    <th>Ação</th>
-    <th>Tradução</th>
-    <th>Verbo HTTP *</th>
-    <th>Comando BD</th>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Create</td>
-    <td>Criar</td>
-    <td>POST</td>
-    <td>INSERT</td>
-  </tr>
-  <tr>
-    <td>R</td>
-    <td>Read</td>
-    <td>Ler</td>
-    <td>GET</td>
-    <td>SELECT</td>
-  </tr>
-  <tr>
-    <td>U</td>
-    <td>Update</td>
-    <td>Atualizar</td>
-    <td>PUT</td>
-    <td>UPDATE</td>
-  </tr>
-  <tr>
-    <td>D</td>
-    <td>Delete</td>
-    <td>Deletar</td>
-    <td>DELETE</td>
-    <td>DELETE</td>
-  </tr>
-</table>
+# Parar e remover volumes (apaga dados do MySQL local)
+docker compose --profile dev down -v
+```
 
-_* Você verá o verbo HTTP sendo apontado nos arquivos em /routes_
+## 📝 Variáveis de Ambiente
 
-**"E no meu projeto, o que seria um recurso?"** Em web-data-viz manipulamos os recursos **usuário**, **aviso** e **medida**. Podemos conferir isso vendo para quais entidades foram criados os caminhos de inserção e captura de dados, que envolve os diretórios **routes**, **controllers** e **models**.
+| Variável | Descrição | Exemplo |
+|----------|-----------|---------|
+| `NODE_ENV` | Ambiente (development/production) | `production` |
+| `DB_HOST` | Host do banco de dados | `endpoint.rds.amazonaws.com` |
+| `DB_DATABASE` | Nome do banco | `cosmos` |
+| `DB_USER` | Usuário do banco | `admin` |
+| `DB_PASSWORD` | Senha do banco | `sua-senha` |
+| `DB_PORT` | Porta do banco | `3306` |
+| `APP_PORT` | Porta da aplicação | `8080` |
+| `APP_HOST` | Host da aplicação | `0.0.0.0` |
 
-Abaixo, uma figura que ajuda a compreender o caminho percorrido para, por exemplo, efetuar o cadastro de um usuário:
+## 👨‍💻 Autor
 
-
-![image](https://github.com/user-attachments/assets/d576f178-0da6-437e-b5c9-658e3ebaf6ca)
-
-
-
-**Entendi o que é um recurso e gostaria de adicionar um novo ao meu projeto! Como faz?**  
-- Primeiro, crie a tabela no Banco de Dados referente a este recurso. Exemplos de recursos comuns de serem adicionados ao projeto no primeiro semestre: Silo, Aquário, Sala, Andar, Endereço, Mercado, Prateleira, Unidade, Carro, Caminhão...  
-- Assim que criada a tabela, faça todo o caminho de **front-end → routes → controllers → models** replicando o que já existe!  
-- Exemplo, se você quiser a funcionalidade de adicionar um novo Aquário, deve criar arquivos referentes ao aquario nos diretórios e replicar também as funções.  
-- Dica: A implementação de AVISO já contém o CRUD completo! :wink:
- 
-### Fontes bibliográficas
-
-[1] https://datatracker.ietf.org/doc/html/rfc2396  
-[2] https://datatracker.ietf.org/doc/html/rfc7231
+Gustavo Henrique — © 2025

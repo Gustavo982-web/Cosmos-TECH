@@ -1,20 +1,25 @@
 {
-  "name": "web-data-viz",
+  "name": "cosmos-tech",
   "version": "1.0.0",
-  "description": "",
+  "description": "Cosmos-TECH - Plataforma educacional sobre o espaço",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon --exec node app.js"
+    "dev": "nodemon app.js"
   },
-  "author": "Feito pelos desenvolvedores @ São Paulo Tech School / Bandtec Digital School",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Cosmos-TECH Team",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.17.1",
     "mysql2": "^3.9.4",
-    "nodemon": "^2.0.7",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
