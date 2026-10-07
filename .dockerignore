@@ -1,14 +1,16 @@
-node_modules
-npm-debug.log
-.git
+node_modules/
+npm-debug.log*
+.git/
 .gitignore
-.env
-.env.dev
-.env.example
+.env*
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+.github/
 docker-compose.yml
-Dockerfile
 README.md
 LICENSE
-Documentação
-Banco de Dados
+Documentação/
+Banco de Dados/
 *.md
